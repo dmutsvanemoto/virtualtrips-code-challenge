@@ -15,3 +15,13 @@ describe("Ping", () => {
         response.body.should.be.a('object');
     })
 });
+
+describe("Locations", () => {
+    it("GET /locations", async () => {
+        const response = await chai.request(app)
+            .get('/locations');
+
+        response.should.have.status(200);
+        response.body.should.be.a('array');
+    })
+});
