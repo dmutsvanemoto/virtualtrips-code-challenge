@@ -23,5 +23,15 @@ describe("Locations", () => {
 
         response.should.have.status(200);
         response.body.should.be.a('array');
+        response.body.should.have.length(0);
+    })
+
+    it("GET /locations?q=", async () => {
+        const response = await chai.request(app)
+            .get('/location?q=Vat');
+
+        response.should.have.status(200);
+        response.body.should.be.a('array');
+        response.body.should.have.length(7);
     })
 });
