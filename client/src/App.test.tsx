@@ -2,8 +2,17 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  test('renders search input', () => {
+    render(<App />);
+    const searchInput = screen.getByTestId("SearchBoxContainer");
+    expect(searchInput).toBeInTheDocument();
+  });
+
+  test('renders list', () => {
+    render(<App />);
+    const list = screen.getByTestId("List");
+    expect(list).toBeInTheDocument();
+  });
 });
+
