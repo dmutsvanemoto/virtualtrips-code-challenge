@@ -5,22 +5,23 @@ import * as bodyparser from 'body-parser';
 import cors from 'cors';
 import SQLite3 from 'sqlite3';
 
+import GeoLocation from '../../interfaces/GeoLocation';
+
 var sqlite3 = SQLite3.verbose();
 var db = new sqlite3.Database('../data/virtualtrips.db');
 
-var startsWith = (query: string):Promise<string[]> => {
-    var sql = `SELECT name FROM geonames WHERE name LIKE ?`
+var startsWith = (query: string):Promise<GeoLocation[]> => {
+    var sql = `SELECT geonameid, name, latitude, longitude FROM geonames WHERE name LIKE ?`
 
     return new Promise((resolve, reject) => {
-        db.all(sql, `${query}%`, function(err, rows) {
+        db.all(sql, `${query}%`, function(err, rows: any[]) {
             if(err)
             {
                 console.log('Error running sql ' + sql)
                 console.log(err)
                 reject(err)
             }
-            var data: string[] = rows.map(x => x.name);
-            resolve(data);
+            resolve(rows);
         });
     });
 }

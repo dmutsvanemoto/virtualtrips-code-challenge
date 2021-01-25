@@ -8,6 +8,7 @@
     "inlineSourceMap": true
   },
   "include": [
+    "../interfaces/*.ts",
     "src/**/*.ts"
   ],
   "exclude": [
