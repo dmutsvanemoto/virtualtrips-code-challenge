@@ -1,5 +1,31 @@
 # Virtualtrips JavaScript code challenge
 
+## SETUP
+
+### Installation
+Install client Dependecies by running (can also yarn):
+```sh
+cd ./client && npm i
+```
+
+Install Server Dependecies by running (had issue with yarn install sqlite3):
+```sh
+cd ./server && npm i
+```
+
+### Running
+
+To run client:
+```sh
+cd ./client && npm start
+```
+
+To run server:
+```sh
+cd ./server && npm start
+```
+
+
 This challenge has three parts:
 
 1. Written answers to [Questions](./QUESTIONS.md)
